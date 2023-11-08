@@ -1,0 +1,36 @@
+<% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="/form-validation.css">
+
+<section class="container-sm d-flex flex-column align-items-center">
+    <div>
+            
+                <h1>Log In</h1>
+ 
+
+        <form class="form-control needs-validation" action="/login/local?path=<%= path %>" method="POST">
+            <div class="form-group mb-3">
+                <label for="username">Username:</label>
+                <input name="username">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="password">Password:</label>
+                <input name="password">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="trusted"><small>Remember my password.</small></label>
+                <input type="checkbox" name="trusted">
+                <p><small>(Only check this box if this is a trusted device!)</small></p>
+            </div>
+
+            <button class="btn btn-primary mb-3">Log In</button>
+
+            <a href="/home"><button type="button" class="btn btn-dark d-block mb-3">Home</button></a>
+        </form>
+    </div>
+
+<%- include('../partials/loading-dialog.ejs') %>
+<%- include('../partials/html-dialog.ejs') %>
+</section>
+<script type="module" src="/valid.js"></script>

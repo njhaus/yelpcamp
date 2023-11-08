@@ -1,0 +1,116 @@
+<div class="search-container p-3 mt-1">
+        <h3 class="search-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-signpost-2-fill" viewBox="0 0 16 16">
+                <path d="M7.293.707A1 1 0 0 0 7 1.414V2H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5v1H2.5a1 1 0 0 0-.8.4L.725 8.7a.5.5 0 0 0 0 .6l.975 1.3a1 1 0 0 0 .8.4H7v5h2v-5h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H9V6h4.5a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.3 2.4a1 1 0 0 0-.8-.4H9v-.586A1 1 0 0 0 7.293.707z"/>
+            </svg>
+             Find campgrounds 
+        </h3>
+        <!-- Search filters -->
+        <p class="d-inline-flex gap-1">
+            <a class="btn btn-yellow search-filter-btn">
+                Filters
+            </a>
+        </p>
+        <!-- FORM -->
+        <form id="search-form" method="GET" action="/campgrounds/search/">
+        <!-- SEARCH BY NAME -->
+            <div class="form-group mb-4">
+                <label class="search-main-label mb-1" for="title-search">Search by title</label>
+                <input type="title" class="form-control mb-1" id="title-search" name="title" aria-describedby="titleHelp" placeholder="Enter campground name or keyword">
+            </div>
+        <!-- SEARCH BY LOCATION -->
+            <div class="form-group mb-4">
+                <label class="search-main-label mb-1" for="city-search">Search by Location</label>
+                    <div class="mb-3">
+                        <input type="text" name="city" class="form-control mb-1" id="city-search" aria-describedby="cityHelp" placeholder="Enter city">
+                        <div id="cityHelp" class="search-form-text">City</div>
+                    </div>
+                    <div class="mb-4">
+                        <select name="state" id="state-search" class="form-select mb-1" disabled>
+                            <option value="" disabled selected>Select a state</option>
+                            <option value="Alabama">Alabama</option>
+                            <option value="Alaska">Alaska</option>
+                            <option value="Arizona">Arizona</option>
+                            <option value="Arkansas">Arkansas</option>
+                            <option value="California">California</option>
+                            <option value="Colorado">Colorado</option>
+                            <option value="Connecticut">Connecticut</option>
+                            <option value="Delaware">Delaware</option>
+                            <option value="Florida">Florida</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Hawaii">Hawaii</option>
+                            <option value="Idaho">Idaho</option>
+                            <option value="Illinois">Illinois</option>
+                            <option value="Indiana">Indiana</option>
+                            <option value="Iowa">Iowa</option>
+                            <option value="Kansas">Kansas</option>
+                            <option value="Kentucky">Kentucky</option>
+                            <option value="Louisiana">Louisiana</option>
+                            <option value="Maine">Maine</option>
+                            <option value="Maryland">Maryland</option>
+                            <option value="Massachusetts">Massachusetts</option>
+                            <option value="Michigan">Michigan</option>
+                            <option value="Minnesota">Minnesota</option>
+                            <option value="Mississippi">Mississippi</option>
+                            <option value="Missouri">Missouri</option>
+                            <option value="Montana">Montana</option>
+                            <option value="Nebraska">Nebraska</option>
+                            <option value="Nevada">Nevada</option>
+                            <option value="New Hampshire">New Hampshire</option>
+                            <option value="New Jersey">New Jersey</option>
+                            <option value="New Mexico">New Mexico</option>
+                            <option value="New York">New York</option>
+                            <option value="North Carolina">North Carolina</option>
+                            <option value="North Dakota">North Dakota</option>
+                            <option value="Ohio">Ohio</option>
+                            <option value="Oklahoma">Oklahoma</option>
+                            <option value="Oregon">Oregon</option>
+                            <option value="Pennsylvania">Pennsylvania</option>
+                            <option value="Rhode Island">Rhode Island</option>
+                            <option value="South Carolina">South Carolina</option>
+                            <option value="South Dakota">South Dakota</option>
+                            <option value="Tennessee">Tennessee</option>
+                            <option value="Texas">Texas</option>
+                            <option value="Utah">Utah</option>
+                            <option value="Vermont">Vermont</option>
+                            <option value="Virginia">Virginia</option>
+                            <option value="Washington">Washington</option>
+                            <option value="West Virginia">West Virginia</option>
+                            <option value="Wisconsin">Wisconsin</option>
+                            <option value="Wyoming">Wyoming</option>
+                            </select>
+                        <div id="stateHelp" class="search-form-text">State</div>
+                        <p class="invalid-text hidden" id="invalid-location">If you enter a city, you must also enter a state.</p>
+                    </div>
+                <div class="mb-4">
+                    <label class="search-main-label" for="miles-search">Find campgrounds within</label>
+                    <select name="miles" id="miles-search" class="search-miles-select form-select" disabled>
+                        <option value="" selected disabled>Choose a distance</option>
+                        <option value="25">25 miles</option>
+                        <option value="50">50 miles</option>
+                        <option value="100">100 miles</option>
+                        <option value="200">200 miles</option>
+                        <option value="">No Maximum Distance</option>
+                    </select>
+                </div>
+            </div>
+        <!-- Search by rating -->
+            <!-- <div class="form-group mb-3 row">
+                <div class="col-6">
+                    <label for="rating-search">Find campgrounds with an average rating of at least: </label>
+                    <select name="rating" id="rating-search" class="form-select">
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </div>
+            </div> -->
+            <button class="btn btn-yellow mb-3" id="search-btn" type="button">Search</button>
+            <% if (Object.keys(filter).length > 0) { %>
+            <a class="btn btn-yc-dark" href="/campgrounds">
+                View all campgrounds
+            </a>
+            <% } %>
+        </form>
+    </div>

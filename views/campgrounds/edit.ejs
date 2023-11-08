@@ -1,0 +1,73 @@
+<% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="/form-validation.css">
+
+<section class="container-sm">
+    <h1>Edit Campground</h1>
+    <form method="POST" class="needs-validation" action="/campgrounds/<%=campground._id%>/auth/edit/?_method=PUT" method="POST" enctype="multipart/form-data" novalidate>
+        <div class="form-group">
+            <label for="title">Name of campground: </label>
+            <input class="form-control mb-3" id="title" name="title" value="<%=campground.title %>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input class="form-control mb-3" id="city" name="city" value="<%= campground.location.split(",")[0].trim() %>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input class="form-control mb-3" id="state" name="state" value="<%= campground.location.split(",")[1].trim() %>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description: </label>
+            <textarea class="form-control mb-3" id="description" name="description" value="<%=campground.description %>" required><%=campground.description %></textarea>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="price">Price: </label>
+            <input class="form-control mb-3" id="price" name="price" value="<%=campground.price %>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        
+        <div class="form-group my-3">
+            <label for="img-upload">Upload new images: </label>
+            <input type="file" class="form-control no-validate" name="img" id="img-upload" multiple />
+            <div class="text-danger" id="img-feedback">
+                Limit 5 total images.
+            </div>
+        </div>
+
+        <p>Delete images: </p>
+        <% if(campground.getPhoto().length > 0) { %>
+            <% campground.getPhoto('s').map((img, i) => {%>
+            <div class="form-group d-flex align-items-center my-1 gap-2">  
+                <label class="form-check-label" for="<%campground.img[i].url%>">Delete:</label>
+                <input class="form-check-input delete-img-check" type="checkbox" name="deleteImg[]" id="<%=campground.img[i].url%>" value="<%=campground.img[i].url%>">
+                <img class="existing-img" src="<%= img %>" alt="<%= campground.title %> Image">
+            </div>
+        <%})} %>
+
+        <button class="btn btn-primary" type="sumbit">Save</button>
+    </form>
+    
+<!-- dialog -- loading while img upload -->
+<%- include('../partials/loading-dialog.ejs') %>
+<%- include('../partials/html-dialog.ejs') %>
+
+</section>
+<script type="module" src="/valid.js"></script>

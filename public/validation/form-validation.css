@@ -1,0 +1,16 @@
+#img-feedback {
+    display: none;
+}
+
+.form-control.no-validate:valid {
+    border-color: #ced4da;
+    padding-right: .75rem;
+    background: none;
+}
+
+.faux-disabled {
+    opacity: 40%;
+    filter: brightness(60%);
+    pointer-events: none;
+    cursor: not-allowed;
+}

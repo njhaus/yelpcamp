@@ -1,0 +1,100 @@
+#map {
+    height: 500px;
+    max-height: 50vh;
+}
+
+.navbar-collapse {
+    background-color: black;
+}
+
+.campground-section {
+    margin-top: 70px;
+    width: fit-content;
+    display: grid;
+    grid-template-areas: 
+        "search map"
+        "search all"
+    ;
+    gap: 10px;
+    grid-template-columns: var(--search-width) 1fr;
+    grid-template-rows: minmax(100px, 40vh) 1fr;
+}
+
+.campground-search-container {
+    position: relative;
+    grid-area: search;
+    background-color: black;
+}
+
+.campground-map-container {
+    grid-area: map;
+    overflow: hidden;
+}
+
+.campground-all-container {
+    grid-area: all;
+}
+
+.search-container {
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    width: var(--search-width);
+    overflow-y: scroll;
+}
+
+.search-title {
+    font-size: 1.3rem;
+    color: white;
+    background-color: var(--yc-dark-grey-3);
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.search-title svg {
+    color: var(--yc-main-yellow);
+    margin: 0 2px 2px 2px;
+}
+
+.search-filter-btn {
+    display: none;
+}
+
+.search-main-label {
+    color: var(--yc-lt-grey-1);
+    font-size: 1.1rem;
+}
+
+.search-form-text {
+    color: var(--yc-lt-grey-2);
+    font-size: 0.9rem;
+}
+
+.search-miles-select {
+    width: 100%;
+}
+
+.form-control, .form-select {
+    background-color: var(--yc-dark-grey-1);
+    color: white;
+    border-color: var(--yc-lt-grey-1);
+}
+
+.form-control:focus {
+    color: white;
+    background-color: var(--yc-dark-grey-3);
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+}
+
+.form-control::placeholder {
+    color: var(--yc-lt-grey-3);
+}
+
+.form-control:disabled, .form-select:disabled {
+    background-color: var(--yc-dark-grey-3);
+    color: var(--yc-dark-grey-2);
+    opacity: 1;
+}
