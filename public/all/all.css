@@ -3,6 +3,8 @@
 :root {
     /* Main Theme colors */
     --yc-main-yellow: #e5c002;
+    --yc-lt-yellow-1: hsl(50, 98%, 75%);
+    --yc-dark-yellow-1: hsl(50, 98%, 25%);
 
     /* Light colors */
     --yc-lt-grey-1: #d6d6d7;
@@ -19,7 +21,9 @@
     --yc-dark-grey-3: #29333d;
 
     /* Reused Sizes */
-    --search-width: 280px
+    --search-width: 280px;
+    --map-width: 630px;
+    --map-search-width: calc(var(var(--map-width) + var(var(--search-width))))
 }
 
 .btn-yc-dark.btn {
@@ -39,9 +43,20 @@
     --bs-btn-disabled-border-color: var(--yc-dark-grey-1);
 }
 
+
 .btn-yellow.btn {
     background-color: var(--yc-main-yellow);
     color: black;
+}
+
+.btn-yellow.btn:hover {
+    background-color: var(--yc-lt-yellow-1) !important;
+    border-color: var(--yc-ts-grey-1);
+    box-shadow: 0 0 3px white;
+}
+
+.btn-yellow.btn:active {
+    background-color: var(--yc-dark-yellow-1) !important;
 }
 
 /* 229 192 2 */
@@ -87,7 +102,7 @@ main {
 }
 
 nav {
-    z-index: 1;
+    z-index: 10;
     height: 70px;
     background: black;
     align-items: start !important;
@@ -103,6 +118,7 @@ nav {
 }
 
 .dropdown {
+    z-index: 10;
     padding-bottom: 25px;
     margin: 0;
     padding-right: 0 !important;
@@ -115,6 +131,7 @@ nav {
 }
 
 .navbar-collapse {
+    z-index: 10;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 90%, rgba(0, 0, 0, 0) 100%);
 }
 

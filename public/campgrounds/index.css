@@ -7,9 +7,10 @@
     background-color: black;
 }
 
+/* Overall layout */
 .campground-section {
     margin-top: 70px;
-    width: fit-content;
+    /* width: fit-content; */
     display: grid;
     grid-template-areas: 
         "search map"
@@ -21,27 +22,27 @@
 }
 
 .campground-search-container {
-    position: relative;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    width: var(--search-width);
+    overflow-y: scroll;
     grid-area: search;
     background-color: black;
+    width: var(--search-width)
 }
 
 .campground-map-container {
     grid-area: map;
     overflow: hidden;
+    min-width: var(--map-width);
 }
 
 .campground-all-container {
     grid-area: all;
 }
 
-.search-container {
-    position: fixed;
-    top: 80px;
-    bottom: 0;
-    width: var(--search-width);
-    overflow-y: scroll;
-}
+/* Search filters form */
 
 .search-title {
     font-size: 1.3rem;
@@ -57,7 +58,7 @@
     margin: 0 2px 2px 2px;
 }
 
-.search-filter-btn {
+.campground-filter-btn-container {
     display: none;
 }
 
@@ -86,7 +87,7 @@
     background-color: var(--yc-dark-grey-3);
     border-color: #86b7fe;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, .25);
 }
 
 .form-control::placeholder {
@@ -97,4 +98,125 @@
     background-color: var(--yc-dark-grey-3);
     color: var(--yc-dark-grey-2);
     opacity: 1;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--yc-dark-grey-1) inset !important;
+    -webkit-text-fill-color: white;
+
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--yc-dark-grey-1) inset !important;
+    -webkit-text-fill-color: white;
+}
+
+/* Cmapgrounds found info and pages */
+
+.campground-found-info p {
+    color: var(--yc-lt-grey-2);
+}
+
+.page-links a {
+    color: var(--yc-lt-grey-1) !important;
+}
+
+.page-link {
+    cursor: pointer;
+}
+
+.page-link:hover {
+    transform: scale(1.2);
+}
+
+.page-link:active {
+    color: var(--yc-dark-grey-3) !important;
+}
+
+.page-link.visited {
+    color: var(--yc-lt-grey-3) !important;
+}
+
+.page-link.current-page {
+    color: var(--yc-main-yellow) !important;
+    text-decoration: underline;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 930px) {
+    .campground-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        margin-top: 70px;
+    }
+    .campground-search-container {
+        left: 0;
+        top: 70px;
+        left: calc(-1 * (var(--search-width)));
+        background-color: black;
+        z-index: 1;
+        padding-top: 40px;
+
+    }
+    .campground-map-container {
+        padding-top: 40px;
+    }
+
+    .campground-filter-btn-container {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        display: block;
+        z-index: 2; 
+        width: 100px;
+        height: 40px;
+        overflow: hidden;
+    }
+
+    .search-btn-slider {
+        width: 200%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .search-filter-btn, .search-filter-close {
+        box-sizing: border-box;
+        width: 48%;
+        height: 100%;
+        margin: 0;
+    }
+
+    /* Search button animations */
+
+    .open {
+        animation: opening 0.75s ease forwards;
+    }
+
+    @keyframes opening {
+        from {
+            left: calc(-1 *(var(--search-width)));
+        }
+        to {
+            left: 0;
+        }
+    }
+
+    .close {
+        animation: closing 0.75s ease forwards;
+    }
+
+    @keyframes closing {
+        from {
+            left: 0;
+        }
+
+        to {
+            left: calc(-1 *(var(--search-width)));
+        }
+    }
 }

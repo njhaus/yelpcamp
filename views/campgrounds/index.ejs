@@ -2,33 +2,50 @@
 <link href="/index.css" rel="stylesheet" type="text/css">
 
 
-<section class="campground-section position-relative pe-3">
+<section class="campground-section position-relative">
 
+    <!-- Search filters button-->
+    <div class="campground-filter-btn-container align-self-start mx-3">
+        <div class="search-btn-slider">
+            <a class="btn btn-yellow search-filter-btn" id="search-filter-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
+            </svg>
+            <p class="d-inline">Filters</p>
+        </a>
+        <a class="btn btn-yc-dark search-close-btn" id="search-close-btn">
+            <svg class="d-inline" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+            </svg>
+            <p class="d-inline">Close</p>
+        </a>
+        </div>
+    </div>
     <!-- Search -->
-    <div class="campground-search-container">
+    <div class="campground-search-container offscreen" id="campground-search-container">
         <%- include('../partials/search.ejs') %>
     </div>
     
-    <div class="campground-map-container">
+    <div class="campground-map-container mx-3">
             <div id="map" class="mt-3"></div>
      </div>
 
     <!-- Campgrounds found information + pages -->
-    <div class="campground-all-container row mt-1 pt-2">
+    <div class="campground-all-container row mt-1 pt-2 mx-3">
         <% if (!campgrounds) { %>
-            <div class="campground-found-info-none">
+            <div class="campground-found-info mb-3">
                 <p><em>No campgrounds found. Please check your search terms and try again.</em></p>
             </div>
         <% } else { %>
-            <div class="campground-found-info col-12">
-                <p class="text-muted"><em><%= campgrounds.length %> campgrounds found
+            <div class="campground-found-info col-12 mb-3">
+                <p><em><%= campgrounds.length %> campgrounds found
                 <% if(filter.title || filter.city || filter.state) {%><span>with search terms </span><%}%>
                 <% if(filter.title) {%><span >"<span id="search-title"><%=filter.title %></span>" </span><%}%>
                 <% if(filter.miles) {%><span>within <span id="search-miles"><%=filter.miles %></span> miles of </span><%}%>
                 <% if(filter.city) {%><span><%=filter.city %>, </span><%}%>
                 <% if(filter.state) {%><span><%=filter.state %></span><%}%></em></p>
                 <% if(filter.coords) {%><span id="search-coordinates" class="hidden"><%=filter.coords %></span><%}%></em></p> 
-                <div id="page-links" class="d-flex gap-2">        
+                <div id="page-links" class="d-flex gap-2 page-links align-items-end">        
                 </div>
             </div>
 

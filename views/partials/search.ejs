@@ -5,12 +5,6 @@
             </svg>
              Find campgrounds 
         </h3>
-        <!-- Search filters -->
-        <p class="d-inline-flex gap-1">
-            <a class="btn btn-yellow search-filter-btn">
-                Filters
-            </a>
-        </p>
         <!-- FORM -->
         <form id="search-form" method="GET" action="/campgrounds/search/">
         <!-- SEARCH BY NAME -->
@@ -106,9 +100,9 @@
                     </select>
                 </div>
             </div> -->
-            <button class="btn btn-yellow mb-3" id="search-btn" type="button">Search</button>
+            <button class="btn btn-yellow mb-3 btn-grow" id="search-btn" type="button">Search</button>
             <% if (Object.keys(filter).length > 0) { %>
-            <a class="btn btn-yc-dark" href="/campgrounds">
+            <a class="btn btn-yc-dark " href="/campgrounds">
                 View all campgrounds
             </a>
             <% } %>
