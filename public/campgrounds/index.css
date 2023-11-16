@@ -19,6 +19,7 @@
     gap: 10px;
     grid-template-columns: var(--search-width) 1fr;
     grid-template-rows: minmax(100px, 40vh) 1fr;
+    min-height: 100vh;
 }
 
 .campground-search-container {
@@ -40,6 +41,7 @@
 
 .campground-all-container {
     grid-area: all;
+    min-height: 100%;
 }
 
 /* Search filters form */
@@ -111,6 +113,7 @@ input:-webkit-autofill:focus {
     -webkit-text-fill-color: white;
 }
 
+
 /* Cmapgrounds found info and pages */
 
 .campground-found-info p {
@@ -118,6 +121,10 @@ input:-webkit-autofill:focus {
 }
 
 .page-links a {
+    color: var(--yc-lt-grey-1) !important;
+}
+
+.page-label {
     color: var(--yc-lt-grey-1) !important;
 }
 
@@ -140,6 +147,35 @@ input:-webkit-autofill:focus {
 .page-link.current-page {
     color: var(--yc-main-yellow) !important;
     text-decoration: underline;
+}
+
+/* Campgrounds cards */
+
+.card {
+    border: none !important;
+    border-radius: 0.25rem !important;
+    background-color: var(--yc-dark-grey-3);
+    color: var(--yc-lt-grey-1);
+    height: 100%;
+    box-shadow: 0 1px 5px var(--yc-dark-grey-1);
+}
+
+.card-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.card-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 200;
 }
 
 /* Media queries */

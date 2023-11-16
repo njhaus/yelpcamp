@@ -31,9 +31,10 @@
      </div>
 
     <!-- Campgrounds found information + pages -->
-    <div class="campground-all-container row mt-1 pt-2 mx-3">
-        <% if (!campgrounds) { %>
-            <div class="campground-found-info mb-3">
+    <div class="campground-all-container container mt-1 pt-2">
+        <div class="row">
+            <% if (!campgrounds) { %>
+            <div class="campground-found-info mb-3 col-12">
                 <p><em>No campgrounds found. Please check your search terms and try again.</em></p>
             </div>
         <% } else { %>
@@ -48,45 +49,49 @@
                 <div id="page-links" class="d-flex gap-2 page-links align-items-end">        
                 </div>
             </div>
+        </div>
 
      <!-- Campgrounds List -->
+     <div class="row gx-5 gy-3 px-2 mt-2">
         <% campgrounds.reverse().forEach((campground, i)=> { %>
-        <div class="campground-card-container ps-2 mb-3 col-12 col-md-6 col-xl-4">
-            <div id=<%=`campground-${i}`%> class="campground-card card">
-                <div class="row g-0">
-                    <div class="col-md-4 d-flex align-items-center">
-                        <% if(campground.getPhoto().length > 0) { %>
-                        <img class="card-img" src="<%= campground.getPhoto()[0] %>" alt="<%= campground.img[0].filename %>">
-                        <% } else { %>
-                            <img class="card-img-top" src="/no-img-found.jpg" alt="No image found">
-                        <% } %>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <%= campground.title %>
-                            </h5>
-                            <p class="card-text">
-                                <%= campground.location %>
-                                <%= campground.geocode.coordinates[0]  %>, <%= campground.geocode.coordinates[1]  %>
-                            </p>
-                            <a class="btn btn-dark" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
-                            <p class="card-text">
-                                <% if(lastViewed && lastViewed.find(view => view.id === campground._id.toHexString())) {%>
-                                    <small class="text-muted">
-                                        Last viewed 
-                                        <% const minutes = Math.floor((Date.now() - (lastViewed.find(view => view.id === campground._id.toHexString()).timestamp)) / 1000 / 60)  %>
-                                        <%= minutes <= 60 ? `${minutes} minute` : minutes <= 1440 ? `${Math.floor(minutes/60)} hour` : `${Math.floor(minutes/1440)} day` %><%= minutes !== 1 || Math.floor(minutes/60) !== 1 || Math.floor(minutes/1440) !== 1 ? 's' : '' %> 
-                                        ago.
-                                    </small>
-                                    <% } %>
-                            </p>
+                <div class="campground-card-container ps-2 mb-3 col-8 col-sm-6 col-lg-4 col-xxl-3 offset-2 offset-sm-0">
+                    <div id=<%=`campground-${i}`%> class="campground-card card">
+                        <div class="row g-0">
+                            <div class="d-flex align-items-center">
+                                <% if(campground.getPhoto().length > 0) { %>
+                                <img class="card-img" src="<%= campground.getPhoto()[0] %>" alt="<%= campground.img[0].filename %>">
+                                <% } else { %>
+                                    <img class="card-img-top" src="/no-img-found.jpg" alt="No image found">
+                                <% } %>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-body-upper">
+                                    <h5 class="card-title">
+                                    <%= campground.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= campground.location %>
+                                </p>
+                                <p class="card-text">
+                                    <% if(lastViewed && lastViewed.find(view => view.id === campground._id.toHexString())) {%>
+                                        <small class="text-muted">
+                                            Last viewed 
+                                            <% const minutes = Math.floor((Date.now() - (lastViewed.find(view => view.id === campground._id.toHexString()).timestamp)) / 1000 / 60)  %>
+                                            <%= minutes <= 60 ? `${minutes} minute` : minutes <= 1440 ? `${Math.floor(minutes/60)} hour` : `${Math.floor(minutes/1440)} day` %><%= minutes !== 1 || Math.floor(minutes/60) !== 1 || Math.floor(minutes/1440) !== 1 ? 's' : '' %> 
+                                            ago.
+                                        </small>
+                                        <% } %>
+                                </p>
+                                </div>
+                                <a class="btn btn-yc-dark" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <% })} %>
+     </div>
+        <div id="page-links-bottom-container" class="d-flex gap-2 page-links align-items-end pt-3 pb-5">        
         </div>
-        <% })} %>
     </div>
 </section>
 

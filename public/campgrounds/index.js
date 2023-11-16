@@ -1,41 +1,67 @@
 const campgrounds = Array.from(document.getElementsByClassName('campground-card-container'));
-const pageLinks = document.getElementById('page-links');
+const pageLinks= document.getElementById('page-links');
+const pageLinksBottom = document.getElementById("page-links-bottom-container");
 
 // Create pagination
-let showNumber = 10;
+let showNumber = 12;
 let startPage = 1;
 
 // Create page links
-function showPageLinks() {
+function showPageLinks(el) {
     const cgCount = campgrounds.length;
     if (cgCount > showNumber) {
         const pageLabel = document.createElement('p');
         pageLabel.classList.add('page-label');
         pageLabel.classList.add("mb-0");
         pageLabel.textContent = 'Results page: '
-        pageLinks.append(pageLabel);
+        el.append(pageLabel);
         for (let i = 0; i < Math.floor(cgCount / showNumber) + 1; i++) {
             const pageLink = document.createElement('a');
             pageLink.classList.add("page-link");
             pageLink.textContent = i + 1;
-            pageLinks.append(pageLink);
+            el.append(pageLink);
         }
     }
 }
-showPageLinks();
+showPageLinks(pageLinks);
 
-// Make page links work and show the correct campgrounds
+// copy the links to the bottom
+const pageLinks_copy = pageLinks.cloneNode(true);
+pageLinks_copy.setAttribute("id", "page-links-bottom");
+pageLinksBottom.append(pageLinks_copy);
 
-const links = Array.from(document.getElementsByClassName('page-link'));
-if(links.length > 0) links[0].classList.add("visited");
-if(links.length > 0) links[0].classList.add("current-page");
+// Make page links work and show the correct campgrounds -- doubled them to make the top nd bottom links work. Refactor this to make reusable.
 
-links.forEach((link, index) => (link.addEventListener('click', () => {
-    links.forEach(link => link.classList.remove('current-page'));
+const topLinks = Array.from(pageLinks.getElementsByClassName('page-link'));
+if(topLinks.length > 0) topLinks[0].classList.add("visited");
+if (topLinks.length > 0) topLinks[0].classList.add("current-page");
+
+const bottomLinks = Array.from(pageLinksBottom.getElementsByClassName("page-link"));
+if (bottomLinks.length > 0) bottomLinks[0].classList.add("visited");
+if (bottomLinks.length > 0) bottomLinks[0].classList.add("current-page");
+
+topLinks.forEach((link, index) => (link.addEventListener('click', () => {
+    topLinks.forEach(link => link.classList.remove('current-page'));
+    bottomLinks.forEach((link) => link.classList.remove("current-page"));
     link.classList.add('visited');
     link.classList.add('current-page');
+    bottomLinks[index].classList.add('visited');
+    bottomLinks[index].classList.add("current-page");
     showOnPage(index + 1)
 })))
+
+bottomLinks.forEach((link, index) =>
+  link.addEventListener("click", () => {
+      bottomLinks.forEach((link) => link.classList.remove("current-page"));
+      topLinks.forEach((link) => link.classList.remove("current-page"));
+    link.classList.add("visited");
+      link.classList.add("current-page");
+      topLinks[index].classList.add("visited");
+      topLinks[index].classList.add("current-page");
+    showOnPage(index + 1);
+  })
+);
+
 
     // Show campgrounds by page
 function showOnPage(pg) {
