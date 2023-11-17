@@ -83,12 +83,10 @@ section, main {
 .valid-text {
     color: green;
     font-size: 0.8rem;
-    display: none;
 }
 
 .invalid-text {
     color: red;
-    display: none;
 }
 
 /* Main and Nav */

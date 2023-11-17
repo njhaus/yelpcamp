@@ -192,7 +192,6 @@ const createMap = (data) => {
     map.on("click", "unclustered-point", (e) => {
       const coordinates = e.features[0].geometry.coordinates.slice();
       const title = e.features[0].properties.title;
-      const price = e.features[0].properties.price;
       const location = e.features[0].properties.location;
       const img = e.features[0].properties.img;
       const id = e.features[0].properties.id;
@@ -216,7 +215,7 @@ const createMap = (data) => {
       // content-div
       const cgInfo = document.createElement("section");
       cgInfo.setAttribute("class", "map-info");
-      // title/price container
+      // title container
       const cgTitleContainer = document.createElement("div");
       cgInfo.setAttribute("class", "map-title-container");
       // Title text
@@ -224,10 +223,6 @@ const createMap = (data) => {
       cgTitle.setAttribute("class", "map-title");
       cgTitle.setAttribute('href', `/campgrounds/${id}`);
         cgTitle.textContent = title;
-      // price text
-      const cgPrice = document.createElement("p");
-      cgPrice.setAttribute("class", "map-price");
-        cgPrice.textContent =price;
       // location
       const cgLocation = document.createElement("p");
       cgLocation.textContent = location;
@@ -235,7 +230,7 @@ const createMap = (data) => {
 
       // Fit content in divs.
 
-      cgTitleContainer.append(cgTitle, cgPrice);
+      cgTitleContainer.append(cgTitle);
       cgInfo.append(cgTitleContainer, cgLocation);
       cgContainer.append(cgImg, cgInfo);
 

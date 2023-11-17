@@ -1,5 +1,6 @@
 <% layout('/layouts/boilerplate') -%>
 <link href="/index.css" rel="stylesheet" type="text/css">
+<link href="/map.css" rel="stylesheet" type="text/css">
 
 
 <section class="campground-section position-relative">
@@ -21,8 +22,10 @@
         </a>
         </div>
     </div>
+
     <!-- Search -->
     <div class="campground-search-container offscreen" id="campground-search-container">
+        <!-- INCLUDE SEARCH.EJS -->
         <%- include('../partials/search.ejs') %>
     </div>
     

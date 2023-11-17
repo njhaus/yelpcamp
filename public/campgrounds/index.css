@@ -10,7 +10,6 @@
 /* Overall layout */
 .campground-section {
     margin-top: 70px;
-    /* width: fit-content; */
     display: grid;
     grid-template-areas: 
         "search map"
@@ -20,6 +19,7 @@
     grid-template-columns: var(--search-width) 1fr;
     grid-template-rows: minmax(100px, 40vh) 1fr;
     min-height: 100vh;
+    width: 100%;
 }
 
 .campground-search-container {
@@ -37,12 +37,14 @@
     grid-area: map;
     overflow: hidden;
     min-width: var(--map-width);
+    max-width: 100vw;
 }
 
 .campground-all-container {
     grid-area: all;
     min-height: 100%;
 }
+
 
 /* Search filters form */
 
@@ -116,8 +118,13 @@ input:-webkit-autofill:focus {
 
 /* Cmapgrounds found info and pages */
 
-.campground-found-info p {
+.campground-found-info {
     color: var(--yc-lt-grey-2);
+}
+
+.page-links {
+    max-width: 100vw;
+    flex-wrap: wrap;
 }
 
 .page-links a {
@@ -181,6 +188,8 @@ input:-webkit-autofill:focus {
 /* Media queries */
 
 @media screen and (max-width: 930px) {
+
+    /* Layouts */
     .campground-section {
         display: flex;
         flex-direction: column;
@@ -225,6 +234,13 @@ input:-webkit-autofill:focus {
         width: 48%;
         height: 100%;
         margin: 0;
+    }
+
+/* Map */
+
+    canvas {
+        height: 470px;
+        width: 554px;
     }
 
     /* Search button animations */

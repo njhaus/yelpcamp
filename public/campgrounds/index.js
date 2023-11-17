@@ -48,6 +48,7 @@ topLinks.forEach((link, index) => (link.addEventListener('click', () => {
     bottomLinks[index].classList.add('visited');
     bottomLinks[index].classList.add("current-page");
     showOnPage(index + 1)
+    window.scroll({ top: 0, behavior: "instant" });
 })))
 
 bottomLinks.forEach((link, index) =>
@@ -58,7 +59,8 @@ bottomLinks.forEach((link, index) =>
       link.classList.add("current-page");
       topLinks[index].classList.add("visited");
       topLinks[index].classList.add("current-page");
-    showOnPage(index + 1);
+      showOnPage(index + 1);
+      window.scroll({ top: 0, behavior: "instant" });
   })
 );
 

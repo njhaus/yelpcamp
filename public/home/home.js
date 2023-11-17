@@ -19,16 +19,7 @@ const fadeCarousel = (curr) => {
   else current++;
 }
 
-
-const allElements = Array.from(document.getElementsByTagName('div', 'section', 'p', 'a', 'article'));
-console.log(allElements)
-
-allElements.forEach(el => el.addEventListener('click', () => console.log(el)))
-
 // Styles
 
-const nav = document.querySelector('nav');
+const nav = document.querySelector('#nav');
 nav.classList.add('home-nav');
-
-const footer = document.querySelector("footer");
-footer.classList.add("home-footer");
