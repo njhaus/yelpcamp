@@ -59,6 +59,7 @@ app.use(express.static(path.join(__dirname, "public/reviews")));
 app.use(express.static(path.join(__dirname, "public/img")));
 app.use(express.static(path.join(__dirname, "public/all")));
 app.use(express.static(path.join(__dirname, "public/home")));
+app.use(express.static(path.join(__dirname, "public/login")));
 
 // setup method override
 app.use(methodOverride("_method"));
@@ -96,6 +97,19 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use((req, res, next) => {
+  console.log(req.isAuthenticated());
+  console.log(req.user);
+  if (req.user) {
+    console.log("User detected");
+  } else {
+    console.log("no user");
+  }
+  next();
+});
+
+
+// Helmet authorized routes
 const scriptSrcUrls = [
   "https://js.radar.com",
   "https://unpkg.com",

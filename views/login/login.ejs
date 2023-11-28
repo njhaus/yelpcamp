@@ -1,12 +1,11 @@
 <% layout('/layouts/boilerplate') -%>
 <link rel="stylesheet" href="/form-validation.css">
+<link rel="stylesheet" href="/login.css">
 
-<section class="container-sm d-flex flex-column align-items-center">
-    <div>
-            
-                <h1>Log In</h1>
- 
-
+<section class="d-flex flex-column align-items-center justify-content-center login-section">
+    <div class="login-img-container"></div>
+    <div class="login-container">
+        <h1>Log In</h1>
         <form class="form-control needs-validation" action="/login/local?path=<%= path %>" method="POST">
             <div class="form-group mb-3">
                 <label for="username">Username:</label>
@@ -24,9 +23,9 @@
                 <p><small>(Only check this box if this is a trusted device!)</small></p>
             </div>
 
-            <button class="btn btn-primary mb-3">Log In</button>
+            <button class="btn btn-yellow mb-3">Log In</button>
 
-            <a href="/home"><button type="button" class="btn btn-dark d-block mb-3">Home</button></a>
+            <a href="/home"><button type="button" class="btn btn-yc-dark d-block mb-3">Home</button></a>
         </form>
     </div>
 
