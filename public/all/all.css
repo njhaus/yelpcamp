@@ -13,6 +13,7 @@
 
     --yc-ts-grey-1:#FCFCFD66;
     --yc-ts-grey-2:#eCeCFc55;
+    --yc-ts-grey-3:#181f25aa;
     
 
     /* Dark colors */
@@ -23,7 +24,12 @@
     /* Reused Sizes */
     --search-width: 280px;
     --map-width: 630px;
-    --map-search-width: calc(var(var(--map-width) + var(var(--search-width))))
+    --map-search-width: calc(var(var(--map-width) + var(var(--search-width))));
+
+    /* box-shadow */
+    --popup-box-shadow: 1px -1px 2px inset var(--yc-lt-grey-1),
+        -1px 1px 2px inset var(--yc-lt-grey-1);
+
 }
 
 .btn-yc-dark.btn {
@@ -80,9 +86,14 @@ section, main {
 }
 
 /* Validation */
+.valid-text, .invalid-text {
+    font-size: 0.8rem;
+    display: none;
+    margin: 5px 0px;
+}
+
 .valid-text {
     color: green;
-    font-size: 0.8rem;
 }
 
 .invalid-text {
@@ -150,8 +161,65 @@ nav {
 
 footer {
     background-color: black;
+    z-index: 1;
 }
 
 footer p {
     color: #ffffff99;
+}
+
+/* Alerts */
+
+
+.alert {
+    top: 80px !important;
+    --bs-alert-bg: transparent;
+    --bs-alert-padding-x: 1rem;
+    --bs-alert-padding-y: 1rem;
+    --bs-alert-margin-bottom: 1rem;
+    --bs-alert-color: inherit;
+    --bs-alert-border-color: transparent;
+    --bs-alert-border: var(--bs-border-width) solid var(--bs-alert-border-color);
+    --bs-alert-border-radius: var(--bs-border-radius);
+    --bs-alert-link-color: inherit;
+    position: relative;
+    padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
+    background-color: var(--yc-dark-grey-1) !important;
+    color: white !important;
+    box-shadow: var(--popup-box-shadow)
+    ;
+    border-radius: var(--bs-alert-border-radius);
+}
+
+.alert-yc-success svg {
+    fill: green;
+}
+
+.alert-yc-danger svg {
+    fill: red;
+}
+
+.alert div {
+    margin: 5px;
+}
+
+.alert button {
+    background: transparent;
+    border: none;
+}
+
+.alert button svg {
+    fill: white;
+}
+
+dialog {
+    top: 80px !important;
+    position: relative;
+    background-color: var(--yc-dark-grey-1) !important;
+    color: white !important;
+    box-shadow: var(--popup-box-shadow);
+    border-radius: 5px;
+    width: fit-content;
+    border: none;
+    max-width: 80%;
 }

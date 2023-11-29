@@ -1,5 +1,7 @@
 <% if(success && success.length) { %>
-            <div class="alert alert-success d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
+<link rel="stylesheet" href="/all.css">
+
+            <div class="alert alert-yc-success d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
                 role="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
                     <symbol id="check-circle-fill" viewBox="0 0 16 16">
@@ -13,10 +15,13 @@
                 <div>
                     <%= success %>
                 </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-yc-close" data-bs-dismiss="alert" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                        </svg>
+                    </button>
             </div>
             <% } else if(error && error.length) { %>
-                <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
+                <div class="alert alert-yc-danger d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
                     role="alert">
                     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
                         <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -30,10 +35,14 @@
                     <div>
                         <%= error %>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-yc-close" data-bs-dismiss="alert" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                        </svg>
+                    </button>
                 </div>
                 <% } else if(message && message.length) {%>
-                    <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
+                    <div class="alert alert-yc-danger d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
                     role="alert">
                     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
                         <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -47,6 +56,9 @@
                     <div>
                         <%= message %>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-yc-close" data-bs-dismiss="alert" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                        </svg>
+                    </button>
                 </div>
                     <% } %>

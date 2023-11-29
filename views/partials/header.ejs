@@ -26,7 +26,7 @@
                     <span class="ml-auto d-flex justify-content-end align-items-center ">
                         <% if(!currentUser) {%>
                         <a href="/login/register"><button class="btn btn-yc-dark mx-1">Register</button></a>
-                        <a href="/login"><button class="btn btn-yc-dark mx-1">Log In</button></a>
+                        <a href="/login"><button class="btn btn-yellow ms-3">Log In</button></a>
                         <% } else { %>
                         <p class="text-white-50 my-0 mx-3">Hello, <%= currentUser.username + '!' %></p>  
                         <a href="/login/logout"><button class="btn btn-yc-dark">Log Out</button></a>

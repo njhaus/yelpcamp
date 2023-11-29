@@ -19,11 +19,11 @@
 }
 
 .login-container {
-    opacity: 0.7;
-    background-color: var(--yc-dark-grey-2);
+    background-color: var(--yc-ts-grey-3);
     padding: 10px;
     border-radius: 5px;
     box-shadow: 3px 3px 10px black;
+    z-index: 1;
 }
 
 .login-container form {
@@ -48,6 +48,7 @@
     background-color: var(--yc-dark-grey-1);
     border: none;
     margin-left: 3px;
+    color: white;
 }
 
 .login-container a {
