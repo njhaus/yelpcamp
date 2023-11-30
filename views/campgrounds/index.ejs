@@ -77,7 +77,7 @@
                                 </p>
                                 <p class="card-text">
                                     <% if(lastViewed && lastViewed.find(view => view.id === campground._id.toHexString())) {%>
-                                        <small class="text-muted">
+                                        <small class="text-yc-muted">
                                             Last viewed 
                                             <% const minutes = Math.floor((Date.now() - (lastViewed.find(view => view.id === campground._id.toHexString()).timestamp)) / 1000 / 60)  %>
                                             <%= minutes <= 60 ? `${minutes} minute` : minutes <= 1440 ? `${Math.floor(minutes/60)} hour` : `${Math.floor(minutes/1440)} day` %><%= minutes !== 1 || Math.floor(minutes/60) !== 1 || Math.floor(minutes/1440) !== 1 ? 's' : '' %> 

@@ -1,0 +1,52 @@
+.show-section {
+    height: fit-content;
+    margin-top: 80px;
+}
+
+.card, .map {
+    max-height: calc(100vh - 100px);
+    min-height: 300px;
+}
+
+.card {
+    padding: 0;
+    background-color: var(--yc-dark-grey-3);
+        color: var(--yc-lt-grey-1);
+        box-shadow: 0 1px 5px var(--yc-dark-grey-1);
+}
+
+.carousel, .carousel-inner, .carousel-item {
+    height: 100%;
+}
+
+.card img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 200;
+}
+
+.card .text-yc-muted {
+    color: var(--yc-ts-grey-2)
+}
+
+.show-review-section{
+    color: var(--yc-lt-grey-1);
+}
+
+.show-star-container {
+    display: flex;
+    direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.show-review-section h3 {
+    font-size: 1.75rem;
+    font-weight: 200;
+    /* color: var(--yc-main-yellow) */
+}

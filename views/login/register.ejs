@@ -9,7 +9,7 @@
       <form id="reg-form" class="reg-form form-control needs-validation" action="/login/register" method="POST" novalidate>
         <div class="form-group mb-3">
           <label for="email">Email: </label>
-          <input id="reg-email" type="email" name="email" />
+          <input class="login-input" autocomplete="off" id="reg-email" type="email" name="email" />
           <div id="valid-email" class="valid-text">
                   Looks good!
               </div>
@@ -20,7 +20,7 @@
 
         <div class="form-group mb-3">
           <label for="username">Username: </label>
-          <input  id="reg-username" type="text" name="username" minlength="4" maxlength="30"/>
+          <input class="login-input" autocomplete="off" id="reg-username" type="text" name="username" minlength="4" maxlength="30"/>
           <div id="valid-username" class="valid-text">
                   Looks good!
               </div>
@@ -31,7 +31,7 @@
 
         <div class="form-group mb-3">
           <label for="password">Password: </label>
-          <input id="reg-password" type="password" name="password" minlength="8" maxlength="30"/>
+          <input class="login-input" autocomplete="off" id="reg-password" type="password" name="password" minlength="8" maxlength="30"/>
             <div id="valid-password" class="valid-text">
                   Looks good!
               </div>
@@ -42,10 +42,10 @@
 
         <div class="form-group mb-3">
           <label for="trusted"><small>Remember my password.</small></label>
-          <input type="checkbox" name="trusted" />
+          <input class="login-input" autocomplete="off" type="checkbox" name="trusted" />
           <p><small>(Only check this box if this is a trusted device!)</small></p>
         </div>
-        <button id="reg-form-btn" class="btn btn-yellow mb-3" type="button">Register</button>
+        <button id="reg-form-btn" class="btn btn-yellow mb-3" type="button" disabled>Register</button>
         <a href="/home"
           ><button type="button" class="btn btn-yc-dark d-block mb-3">
             Home
@@ -59,3 +59,4 @@
 </section>
 <script type="module" src="/valid.js"></script>
 <script type="module" src="/register-validation.js"></script>
+<script type="module" src="/login-validation.js"></script>
