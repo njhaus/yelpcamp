@@ -141,7 +141,7 @@ export const submitEditCampground = async (req, res, next) => {
     },
   });
   // console.log(saveCampground);
-  req.flash("success", `Successfully updated ${saveCampground.title}`);
+  req.flash("success", `Successfully updated ${info.title}`);
   res.redirect(`/campgrounds/${id}`);
 };
 

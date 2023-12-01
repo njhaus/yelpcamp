@@ -156,6 +156,10 @@ export const getGeolocationSearch = async (city, state) => {
 
 // Get gelocation for new campground
 export const getGeolocation = async (req, res, next) => {
+  const city = req.body.city;
+  const state = req.body.state;
+  console.log(city);
+  console.log(state);
   try {
     const response = await fetch(
       `https://api.radar.io/v1/geocode/forward?query=${city}+${state}&country=US&layers=locality,state`,

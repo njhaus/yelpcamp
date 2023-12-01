@@ -36,18 +36,19 @@
     <% } %>
 
     <!-- REVIEWS -->
-    <div class="show-reviews">
+    <div class="show-reviews my-3">
         <h3>Guest Reviews</h3>
         <% if(campground.reviews.length > 0) {
             for (let i = campground.reviews.length - 1; i >= 0; i--) {
             const review = campground.reviews[i];
             %>
-            <div class="card">
+            <div class="card review-card my-3">
                 <div class="card-body">
-                    <h5 class="card-title">Rating: 
-                        <p class="starability-result" data-rating="<%= review.rating %>"><%= review.rating %></p>
-                    </h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">By: <%= review.user %></h6>
+                    <div class="show-star-container">
+                        <h5 class="card-title card-title-sm">Rating: </h5>
+                     <p class="starability-result" data-rating="<%= review.rating %>"><%= review.rating %></p>
+                    </div>
+                    <h6 class="card-subtitle text-yc-muted mb-2">By: <%= review.user %></h6>
 
                     <%#//Show depending on editing or not %>
 
@@ -58,12 +59,12 @@
                                 <button class="btn btn-sm btn-outline-primary">Save</button>
                             </form>
                         <% } else { %>
-                        <p class="card-text"><%= review.text %></p>
+                        <p class="card-text my-3"><%= review.text %></p>
 
                         <%# //Show depending on if logged in and owner %>
 
                         <% if(currentUser && currentUser.username === review.user) {%>
-                        <a class="btn btn-sm btn-outline-primary" href="/campgrounds/<%=campground._id%>/review/edit/<%=review._id%>">Edit</a>
+                        <a class="btn btn-sm btn-outline-yellow" href="/campgrounds/<%=campground._id%>/review/edit/<%=review._id%>">Edit</a>
                         <a class="btn btn-sm btn-outline-danger dialog-show-rev">Delete</a>
                         <%}
                     }%>

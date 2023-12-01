@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="/show.css"/>
 
 <section class="container-md show-section">
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card show-card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -55,7 +55,7 @@
                         <small>Created by <%= campground.createdBy.username %></small>
                 </p>
                 <% if(currentUser && currentUser.username === campground.createdBy.username) { %>
-                    <a class="btn btn-sm btn-outline-primary mb-1" href="/campgrounds/<%=campground._id%>/auth/edit">Edit <%=
+                    <a class="btn btn-sm btn-outline-yellow mb-1" href="/campgrounds/<%=campground._id%>/auth/edit">Edit <%=
                             campground.title %></a>
                     <button class="btn btn-sm btn-outline-danger mb-1" id="dialog-show">Delete <%= campground.title %></button>
                     <% } %>

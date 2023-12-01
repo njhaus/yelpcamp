@@ -3,12 +3,12 @@
     margin-top: 80px;
 }
 
-.card, .map {
+.show-card, .map {
     max-height: calc(100vh - 100px);
     min-height: 300px;
 }
 
-.card {
+.show-card, .review-card {
     padding: 0;
     background-color: var(--yc-dark-grey-3);
         color: var(--yc-lt-grey-1);
@@ -19,7 +19,7 @@
     height: 100%;
 }
 
-.card img {
+.show-card img {
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
@@ -30,7 +30,12 @@
     font-weight: 200;
 }
 
-.card .text-yc-muted {
+.card-title.card-title-sm {
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+.text-yc-muted {
     color: var(--yc-ts-grey-2)
 }
 
@@ -41,7 +46,6 @@
 .show-star-container {
     display: flex;
     direction: row;
-    gap: 10px;
     align-items: center;
 }
 
@@ -49,4 +53,24 @@
     font-size: 1.75rem;
     font-weight: 200;
     /* color: var(--yc-main-yellow) */
+}
+
+.starability-grow, .starability-result {
+    transform: scale(0.8);
+}
+
+@media screen and (max-width: 768px) {
+    .show-card img {
+        max-height: 300px;
+    }
+    .show-card {
+        max-height: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+.starability-grow,
+    .starability-result {
+        transform: scale(0.55) translateX(-30px);
+    }
 }
