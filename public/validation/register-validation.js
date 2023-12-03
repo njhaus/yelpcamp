@@ -44,13 +44,13 @@ const validatePassword = () => {
     if (password.value.match(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,30}$/
     )) {
-        passwordValid.style.display = "block";
-        passwordInvalid.style.display = "none";
+        passwordValid.classList.remove('hidden');
+        passwordInvalid.classList.add('hidden');
         return true
     }
     else {
-        passwordInvalid.style.display = "block";
-        passwordValid.style.display = "none";
+        passwordInvalid.classList.remove('hidden');
+        passwordValid.classList.add('hidden');
         return false
     }
 }
@@ -58,12 +58,12 @@ const validatePassword = () => {
 const validateUsername = () => {
     console.log("U: " + username.value);
     if (username.value.match(/^[a-zA-Z0-9]{4,30}$/)) {
-      usernameValid.style.display = "block";
-      usernameInvalid.style.display = "none";
+      usernameValid.classList.remove('hidden');
+      usernameInvalid.classList.add('hidden');
       return true;
     } else {
-      usernameInvalid.style.display = "block";
-      usernameValid.style.display = "none";
+      usernameInvalid.classList.remove('hidden');
+      usernameValid.classList.add('hidden');
       return false;
     }
 };
@@ -72,12 +72,12 @@ const validateEmail = () => {
   console.log("E: " + email.value);
     if (email.value.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-z]{2,7}$/)) {
         console.log('matchsdcdc')
-    emailValid.style.display = "block";
-    emailInvalid.style.display = "none";
+    emailValid.classList.remove('hidden');
+    emailInvalid.classList.add('hidden');
     return true;
   } else {
-    emailInvalid.style.display = "block";
-    emailValid.style.display = "none";
+    emailInvalid.classList.remove('hidden');
+    emailValid.classList.add('hidden');
     return false;
   }
 };

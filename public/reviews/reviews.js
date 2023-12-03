@@ -6,13 +6,16 @@ const sumbitReviewButton = document.querySelector('#review-btn')
 const starFeedback = document.querySelector('#star-feedback');
 const reviewText = document.querySelector('#review-text');
 const reviewFeedback = document.querySelector("#review-feedback");
+const editReviewText = document.querySelector("#edit-review-text");
 
+// Validate reviews -- check if length is at least 10 characters and contains a rating
 function checkStarReview() {
+    console.log('fnction running')
     if (!starButtons.find(star => star.checked)) {
-        starFeedback.style.display = "block";
+        starFeedback.classList.remove('hidden');
     }
     else if (reviewText.value.length < 10) {
-        reviewFeedback.style.display = "block";
+        reviewFeedback.classList.remove('hidden');
     }
     else {
         if (sanitizeHtml() === true) reviewForm.submit();
@@ -22,12 +25,12 @@ function checkStarReview() {
 sumbitReviewButton.addEventListener('click', checkStarReview);
 
 starButtons.forEach(star => star.addEventListener('click', () => {
-    starFeedback.style.display = "none";
+    starFeedback.classList.add('hidden');
 }))
 
 reviewText.addEventListener('change', () => {
     if (reviewText.value.length >= 10) {
-      reviewFeedback.style.display = "none";
+      reviewFeedback.classList.add('hidden');
     }
 })
 
@@ -57,4 +60,9 @@ if (dialogShowRevBtns) {
         dialogDelRev[i].show();
       });
     }   
+}
+
+// Scroll to review when edit route is accessed
+if (editReviewText) {
+    editReviewText.scrollIntoView({ behavior: "instant" })
 }

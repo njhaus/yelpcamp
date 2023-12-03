@@ -1,8 +1,9 @@
 <% layout('/layouts/boilerplate') -%>
 <link rel="stylesheet" href="/form-validation.css">
+<link rel="stylesheet" href="/new-edit.css">
 
 <section class="row">
-    <div class="col-6 offset-3">
+    <div class="container new-section">
         <h1>New Campground</h1>
     <form action="/campgrounds/auth/new" id="new-form" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group my-3">
@@ -29,7 +30,7 @@
     
         <div class="form-group my-3">
             <label for="state">State:</label>
-            <select name="state" id="state" class="form-select">
+            <select name="state" id="state" class="form-select" required>
                                 <option value="" disabled selected>Select a state</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -86,7 +87,7 @@
                 Looks good!
             </div>
              <div class="invalid-feedback">
-                Must be between 3-30 characters.
+                Must select a state.
             </div>
         </div>
     
@@ -121,10 +122,10 @@
         </div>
     
         <div class="form-group my-3">
-            <button class="btn btn-primary">Save</button>
+            <button class="btn btn-yellow">Save</button>
         </div>
     </form>
-    <a class="btn btn-outline-primary" href="/home">Home</a>
+    <a class="btn btn-yc-dark" href="/home">Home</a>
 
     </div>
     

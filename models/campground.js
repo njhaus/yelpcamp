@@ -69,7 +69,7 @@ CampgroundSchema.virtual("thumbnail").get(function () {
 
 CampgroundSchema.methods.getPhoto = (function (size) {
     const photos = []
-    const photoSize = size === 's' ? 'h_50,w_75' : 'h_300,w_400';
+    const photoSize = size === 's' ? 'h_300,w_400' : 'h_600,w_800';
     for (let image of this.img) {
         if (image.url.match(/cloudinary/)) {
           const splitUrl = image.url.split("/upload");

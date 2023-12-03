@@ -5,8 +5,17 @@
 
 .show-card, .map {
     max-height: calc(100vh - 100px);
+}
+
+.show-card {
+    min-height: fit-content;
+}
+
+.map {
     min-height: 300px;
 }
+
+
 
 .show-card, .review-card {
     padding: 0;
@@ -22,7 +31,9 @@
 .show-card img {
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     border-radius: 5px;
+    max-height: 466px;
 }
 
 .card-title {
@@ -59,7 +70,13 @@
     transform: scale(0.8);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
+    .show-card {
+        min-height: 411px;
+    }
+}
+
+@media screen and (max-width: 767px) {
     .show-card img {
         max-height: 300px;
     }
@@ -68,7 +85,7 @@
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575px) {
 .starability-grow,
     .starability-result {
         transform: scale(0.55) translateX(-30px);

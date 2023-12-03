@@ -46,8 +46,8 @@ export const campgroundValidation = extension.object({
         type: extension.string().cleanHtml(),
         coordinates: Joi.array()
   }),
-  description: extension.string().cleanHtml().min(10).max(300).required(),
-  price: Joi.number().min(0).max(10000).required(),
+  description: extension.string().cleanHtml().min(10).max(2000).required(),
+  price: Joi.number().min(0).max(1000).required(),
 });
 
 export const reviewValidation = extension.object({

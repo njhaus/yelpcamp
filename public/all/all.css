@@ -104,6 +104,11 @@ html, body {
 
 /* Overall */
 
+body {
+    min-height: 100vh;
+    background-color: var(--yc-dark-grey-2);
+}
+
 section, main {
     background-color: var(--yc-dark-grey-2);
 }
@@ -115,7 +120,6 @@ section, main {
 /* Validation */
 .valid-text, .invalid-text {
     font-size: 0.8rem;
-    display: none;
     margin: 5px 0px;
 }
 

@@ -1,7 +1,8 @@
 <% layout('/layouts/boilerplate') -%>
 <link rel="stylesheet" href="/form-validation.css">
+<link rel="stylesheet" href="/new-edit.css">
 
-<section class="container-sm">
+<section class="container edit-section">
     <h1>Edit Campground</h1>
     <form method="POST" class="needs-validation" action="/campgrounds/<%=campground._id%>/auth/edit/?_method=PUT" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group">
@@ -53,16 +54,19 @@
         </div>
 
         <p>Delete images: </p>
-        <% if(campground.getPhoto().length > 0) { %>
+        <% if(campground.getPhoto('s').length > 0) { %>
             <% campground.getPhoto('s').map((img, i) => {%>
             <div class="form-group d-flex align-items-center my-1 gap-2">  
                 <label class="form-check-label" for="<%campground.img[i].url%>">Delete:</label>
                 <input class="form-check-input delete-img-check" type="checkbox" name="deleteImg[]" id="<%=campground.img[i].url%>" value="<%=campground.img[i].url%>">
                 <img class="existing-img" src="<%= img %>" alt="<%= campground.title %> Image">
             </div>
-        <%})} %>
+        <%})} else { %>
+            <p>No images found for this campground.</p>
+        <%} %>
 
-        <button class="btn btn-primary" type="sumbit">Save</button>
+        <button class="btn btn-yellow" type="sumbit">Save</button>
+        <a class="btn btn-yc-dark" href="/campgrounds/<%=campground._id%>">Cancel</a>
     </form>
     
 <!-- dialog -- loading while img upload -->
