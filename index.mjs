@@ -60,6 +60,7 @@ app.use(express.static(path.join(__dirname, "public/img")));
 app.use(express.static(path.join(__dirname, "public/all")));
 app.use(express.static(path.join(__dirname, "public/home")));
 app.use(express.static(path.join(__dirname, "public/login")));
+app.use(express.static(path.join(__dirname, "public/about")));
 
 // setup method override
 app.use(methodOverride("_method"));
@@ -221,11 +222,14 @@ import loginRoute from "./routes/login.js";
 import campgroundRoute from "./routes/campgrounds.js";
 import campgroundReviewRoute from "./routes/campgrounds_reviews.js";
 import dataRoute from "./routes/data.js";
+import aboutRoute from './routes/about.js'
 
 app.use("/campgrounds", campgroundRoute);
 app.use("/campgrounds/:id/review/", campgroundReviewRoute);
 app.use("/login", loginRoute);
 app.use("/data", dataRoute);
+app.use("/about", aboutRoute);
+
 
 // ROUTE NOT FOUND -- catchalls
 

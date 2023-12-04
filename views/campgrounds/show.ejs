@@ -4,66 +4,66 @@
 
 <section class="container-md show-section">
         <div class="card show-card mb-3">
-        <div class="row g-0">
-            <div class="col-md-4">
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <% if(campground.getPhoto().length >0) { %>
-                        <% campground.getPhoto().map((img, i) => {%>
-                        <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
-                            <img class="card-img-top" src="<%= img %>" alt="<%= campground.title %> Image">
-                        </div>
-                    <%})} else { %>
-                            <img class="card-img-top" src="/no-img-found.jpg" alt="No image found">
+        <div class="row g-0 row-container">
+            <div class="col-md-4 img-container">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <% if(campground.getPhoto().length >0) { %>
+                            <% campground.getPhoto().map((img, i) => {%>
+                            <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+                                <img class="card-img-top" src="<%= img %>" alt="<%= campground.title %> Image">
+                            </div>
+                        <%})} else { %>
+                                <img class="card-img-top" src="/no-img-found.jpg" alt="No image found">
+                        <% } %>
+                        
+                    </div>
+                    <% if (campground.getPhoto().length > 1) { %>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                     <% } %>
-                    
                 </div>
-                <% if (campground.getPhoto().length > 1) { %>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-                <% } %>
             </div>
-            </div>
-            <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title title" id=<%=campground.id%>>
-                    <%= campground.title %>
-                </h5>
-                <p class="text-yc-muted"><%= campground.location %></p>
-                <% if(campground.reviews.length > 0) {%>
-                <p class="text-yc-muted"><em>Average rating: <%= (campground.reviews.map(rev => rev = rev.rating).reduce((a, b) => a + b) / campground.reviews.length).toFixed(1) %></em></p>
-                <% } else {%>
-                    <p class="text-yc-muted"><em>No ratings yet.</em></p>
-                    <% } %>
-                <hr>
-                <p class="card-text">
-                    <%= campground.description %>
-                </p>
-                <hr>
-                <p class="card-text text-yc-muted">
-                    <i>
-                        $<%= campground.price %> per night
-                    </i>
-                </p>
-                <p class="card-text">
-                        <small>Created by <%= campground.createdBy.username %></small>
-                </p>
-                <% if(currentUser && currentUser.username === campground.createdBy.username) { %>
-                    <a class="btn btn-sm btn-outline-yellow mb-1" href="/campgrounds/<%=campground._id%>/auth/edit">Edit <%=
-                            campground.title %></a>
-                    <button class="btn btn-sm btn-outline-danger mb-1" id="dialog-show">Delete <%= campground.title %></button>
-                    <% } %>
-            </div>
+            <div class="col-md-8 card-info">
+                <div class="card-body">
+                    <h5 class="card-title title" id=<%=campground.id%>>
+                        <%= campground.title %>
+                    </h5>
+                    <p class="text-yc-muted"><%= campground.location %></p>
+                    <% if(campground.reviews.length > 0) {%>
+                    <p class="text-yc-muted"><em>Average rating: <%= (campground.reviews.map(rev => rev = rev.rating).reduce((a, b) => a + b) / campground.reviews.length).toFixed(1) %></em></p>
+                    <% } else {%>
+                        <p class="text-yc-muted"><em>No ratings yet.</em></p>
+                        <% } %>
+                    <hr>
+                    <p class="card-text">
+                        <%= campground.description %>
+                    </p>
+                    <hr>
+                    <p class="card-text text-yc-muted">
+                        <i>
+                            $<%= campground.price %> per night
+                        </i>
+                    </p>
+                    <p class="card-text">
+                            <small>Created by <%= campground.createdBy.username %></small>
+                    </p>
+                    <% if(currentUser && currentUser.username === campground.createdBy.username) { %>
+                        <a class="btn btn-sm btn-outline-yellow mb-1" href="/campgrounds/<%=campground._id%>/auth/edit">Edit <%=
+                                campground.title %></a>
+                        <button class="btn btn-sm btn-outline-danger mb-1" id="dialog-show">Delete <%= campground.title %></button>
+                        <% } %>
+                </div>
             </div>
         </div>
         </div>
-            <a class="btn btn-dark align-self-start" href="/campgrounds">Back</a>
+            <a class="btn btn-yc-dark align-self-start" href="/campgrounds">Back</a>
 
         <!-- MAP -->
             <div id="map" class="map my-3"></div>

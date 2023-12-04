@@ -66,6 +66,34 @@
     --bs-gradient: none;
 }
 
+
+/* Overall */
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--yc-dark-grey-2);
+}
+
+section,
+main {
+    background-color: var(--yc-dark-grey-2);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Buttons */
+
 .btn-outline-yellow:hover {
     color: var(--yc-dark-grey-2) !important;
     background-color: var(--yc-main-yellow);
@@ -92,30 +120,10 @@
     background-color: var(--yc-dark-yellow-1) !important;
 }
 
-/* 229 192 2 */
-html, body {
-    height: 100%;
-    font-size: 16px;
+.btn-close {
+    --bs-btn-close-bg: none !important;
 }
 
-* {
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Overall */
-
-body {
-    min-height: 100vh;
-    background-color: var(--yc-dark-grey-2);
-}
-
-section, main {
-    background-color: var(--yc-dark-grey-2);
-}
-
-.hidden {
-    display: none !important;
-}
 
 /* Validation */
 .valid-text, .invalid-text {
