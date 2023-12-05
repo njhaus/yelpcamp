@@ -37,4 +37,9 @@ router.get("/getRadar", (req, res) => {
   res.send(key);
 });
 
+router.get("/getMaptiler", (req, res) => {
+  const key = process.env.MAPTILER_KEY;
+  res.send(key);
+});
+
 export default router;

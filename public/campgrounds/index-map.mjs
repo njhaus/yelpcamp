@@ -20,6 +20,23 @@ const latitudeMin = searchCoords[1] - latitudeRange;
 const docFilter = document.getElementById("search-title");
 const titleFilter = docFilter ? docFilter.innerText : '';
 
+// Get RADAR Map key
+const radarKey = async () => {
+  try {
+    const response = await fetch('/data/getMaptiler');
+    const data = await response.text();
+    if (response.ok) {
+      return data;
+    }
+    else {
+      throw new Error('Key request failed' + response.status);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+// Zoom in on map based upon search tearms (how many mile radius from location user wants to see campgrounds)
 const getZoom = () => {
   if (docCoords && miles) {
     if (miles < 500 && miles >= 200) {
@@ -47,7 +64,6 @@ const cgData = async () => {
   try {
     const response = await fetch('/data/allMapData');
     const data = await response.json();
-
     const filteredData = data.filter(
       (cg) =>
         cg.title.match(new RegExp(titleFilter, 'i')) &&
@@ -60,7 +76,8 @@ const cgData = async () => {
       throw new Error('Request failed. Response status:' + response.status);
     }
     else {
-      createMap(filteredData)
+      const key = await radarKey();
+      createMap(filteredData, key)
     }
   } catch (err) {
     console.log(err);
@@ -69,7 +86,7 @@ const cgData = async () => {
 cgData();
 
 // const cgData = parseData(campgroundsString);
-const createMap = (data) => {
+const createMap = (data, key) => {
   // Put campground data into the format expected by the map
   const cgMapData = {
     type: "FeatureCollection",
@@ -81,7 +98,7 @@ const createMap = (data) => {
         location: cg.location,
         description: cg.description,
         price: cg.price,
-        img: cg.img[0].url
+        img: cg.img[0]?.url
       },
       geometry: {
         type: "Point",
@@ -96,7 +113,7 @@ const createMap = (data) => {
   const map = new maplibregl.Map({
     container: container,
     style:
-      "https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
+      `https://api.maptiler.com/maps/streets/style.json?key=${key}`,
     center: searchCoords,
     zoom: zoom,
   });

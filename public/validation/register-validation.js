@@ -40,7 +40,6 @@ const validateRegistration = () => {
 }
 
 const validatePassword = () => {
-    console.log('P: ' + password.value);
     if (password.value.match(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,30}$/
     )) {
@@ -56,7 +55,6 @@ const validatePassword = () => {
 }
 
 const validateUsername = () => {
-    console.log("U: " + username.value);
     if (username.value.match(/^[a-zA-Z0-9]{4,30}$/)) {
       usernameValid.classList.remove('hidden');
       usernameInvalid.classList.add('hidden');
@@ -69,9 +67,7 @@ const validateUsername = () => {
 };
 
 const validateEmail = () => {
-  console.log("E: " + email.value);
     if (email.value.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-z]{2,7}$/)) {
-        console.log('matchsdcdc')
     emailValid.classList.remove('hidden');
     emailInvalid.classList.add('hidden');
     return true;

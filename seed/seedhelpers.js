@@ -83,7 +83,6 @@ export const places = [
   "Forest",
   "Lake",
   "Town",
-  "Reformatory",
   "Stone",
   "Ranch",
   "Butte",

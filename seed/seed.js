@@ -6,6 +6,10 @@ import { descriptors } from "./seedhelpers.js";
 import { places } from "./seedhelpers.js"
 import { adjectives } from "./seedhelpers.js"
 import { nouns } from "./seedhelpers.js"
+import dotenv from "dotenv";
+dotenv.config({ silent: process.env.NODE_ENV === "production", path: "../.env" });
+
+const dbUrl = process.env.DB_URL;
 
 // Import database model
 import Campground from "../models/campground.js"
@@ -13,10 +17,10 @@ import Campground from "../models/campground.js"
 // Connect mongoose
 async function main() {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/campgroundsDB');
-        console.log('Connection successful');
+        await mongoose.connect(dbUrl);
+        console.log(`Connection successful on ${dbUrl}`);
     } catch (err) {
-        console.err(err);
+        console.log(err);
     }
     // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
@@ -50,12 +54,12 @@ async function seedDB() {
         campgroundsSeed.push(
           new Campground({
             title: title,
-              location: location,
-              geocode: geoCode,
+            location: location,
+            geocode: geoCode,
             img: img,
             description: description,
             price: Math.floor(Math.random() * 20) + 5,
-            createdBy: new mongoose.Types.ObjectId("6529635196874be5eb582c7f"),
+            createdBy: new mongoose.Types.ObjectId("656f944c34d0fa93351d34d2"),
           })
         );
         smallCities.filter(c => c !== city)
@@ -70,4 +74,14 @@ async function seedDB() {
     }
 
 }
-seedDB();
+// seedDB();
+
+async function clearDB() {
+    try {
+        const clearedDB = await Campground.deleteMany({});
+        console.log(clearedDB);
+    } catch (err) {
+        console.log(err)
+    }
+}
+// clearDB();
