@@ -22,6 +22,23 @@ import dotenv from "dotenv";
 dotenv.config({ silent: process.env.NODE_ENV === "production" });
 import helmet from "helmet";
 
+// Cloud Database (Mongo Atlas)
+const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/campgroundsDB";
+//  Store session in Mongo Atlas
+import MongoStore from "connect-mongo";
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  touchAfter: 24 * 60 * 60,
+  crypto: {
+    secret: process.env.SESSION_SECRET,
+  }
+})
+store.on('error', function (e) {
+  console.log('session store error');
+})
+
+
+
 // utilities
 import { AppError } from "./utilities/validation_utilities.js";
 
@@ -73,6 +90,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // session setup
 const sessionConfig = {
+  store,
   name: "yelpcamp-session",
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -165,8 +183,8 @@ app.use(mongoSanitize());
 
 async function main() {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/campgroundsDB");
-    console.log("Connection successful");
+    await mongoose.connect(dbUrl);
+    console.log("Database connection successful");
   } catch (err) {
     console.err(err);
   }
