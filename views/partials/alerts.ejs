@@ -1,7 +1,7 @@
 <% if(success && success.length) { %>
 <link rel="stylesheet" href="/all.css">
 
-            <div class="alert alert-yc-success d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
+            <div class="alert alert-yc-success d-flex align-items-center alert-dismissible fade show position-absolute top-25 start-50 translate-middle mt-5"
                 role="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
                     <symbol id="check-circle-fill" viewBox="0 0 16 16">
@@ -12,7 +12,7 @@
                 <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Success:">
                     <use xlink:href="#check-circle-fill" />
                 </svg>
-                <div>
+                <div tabindex="0">
                     <%= success %>
                 </div>
                 <button type="button" class="btn-yc-close" data-bs-dismiss="alert" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -21,7 +21,7 @@
                     </button>
             </div>
             <% } else if(error && error.length) { %>
-                <div class="alert alert-yc-danger d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
+                <div class="alert alert-yc-danger d-flex align-items-center alert-dismissible fade show position-absolute top-25 start-50 translate-middle mt-5"
                     role="alert">
                     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
                         <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -32,7 +32,7 @@
                     <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Error:">
                         <use xlink:href="#exclamation-triangle-fill" />
                     </svg>
-                    <div>
+                    <div tabindex="0">
                         <%= error %>
                     </div>
                     <button type="button" class="btn-yc-close" data-bs-dismiss="alert" aria-label="Close">
@@ -42,7 +42,7 @@
                     </button>
                 </div>
                 <% } else if(message && message.length) {%>
-                    <div class="alert alert-yc-danger d-flex align-items-center alert-dismissible fade show z-1 position-absolute top-25 start-50 translate-middle mt-5"
+                    <div class="alert alert-yc-danger d-flex align-items-center alert-dismissible fade show position-absolute top-25 start-50 translate-middle mt-5"
                     role="alert">
                     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
                         <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -53,7 +53,7 @@
                     <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Error:">
                         <use xlink:href="#exclamation-triangle-fill" />
                     </svg>
-                    <div>
+                    <div tabindex="0">
                         <%= message %>
                     </div>
                     <button type="button" class="btn-yc-close" data-bs-dismiss="alert" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">

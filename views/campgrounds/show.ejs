@@ -78,7 +78,7 @@
 
 <dialog class="position-fixed fixed-top mt-5" id="dialog">
     <form action="/campgrounds/<%=campground._id%>/auth/delete/?_method=DELETE" method="POST">
-        <p>Are you sure you want to delete <%= campground.title %>? This action cannot be undone</p>
+        <p tabindex="0">Are you sure you want to delete <%= campground.title %>? This action cannot be undone</p>
         <button class="btn btn-danger" id="dialog-btn" type="submit" formmethod="post">Delete <%= campground.title %></button>
         <button class="btn btn-dark" id="dialog-cncl" type="button">Cancel</button>
     </form>

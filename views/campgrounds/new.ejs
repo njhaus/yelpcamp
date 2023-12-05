@@ -6,31 +6,32 @@
     <div class="container new-section">
         <h1>New Campground</h1>
     <form action="/campgrounds/auth/new" id="new-form" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>
-        <div class="form-group my-3">
-            <label for="title">Name of campground: </label>
-            <input class="form-control" id="title" name="title" maxlength="30" minlength="3" required>
-            <div class="valid-feedback">
-                Looks good!
+        <form action="/campgrounds/auth/new" id="new-form" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate aria-labelledby="new-campground-heading">
+            <div class="form-group my-3">
+                <label for="title">Name of campground:</label>
+                <input class="form-control" id="title" name="title" maxlength="30" minlength="3" required aria-describedby="title-validation">
+                <div class="valid-feedback" id="title-validation">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback" id="title-validation" role="alert">
+                    Name of campground must be between 3 and 30 characters.
+                </div>
             </div>
-            <div class="invalid-feedback">
-                Must be between 3-30 characters.
+
+            <div class="form-group my-3">
+                <label for="city">City:</label>
+                <input class="form-control" id="city" name="city" maxlength="30" minlength="3" required aria-describedby="city-validation">
+                <div class="valid-feedback" id="city-validation">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback" id="city-validation" role="alert">
+                    City must be between 3 and 30 characters.
+                </div>
             </div>
-        </div>
-    
-        <div class="form-group my-3">
-            <label for="city">City:</label>
-            <input class="form-control" id="city" name="city" maxlength="30" minlength="3" required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
-             <div class="invalid-feedback">
-                Must be between 3-30 characters.
-            </div>
-        </div>
     
         <div class="form-group my-3">
             <label for="state">State:</label>
-            <select name="state" id="state" class="form-select" required>
+            <select name="state" id="state" class="form-select" required aria-describedby="state-validation">
                                 <option value="" disabled selected>Select a state</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -83,40 +84,40 @@
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select>
-            <div class="valid-feedback">
+            <div class="valid-feedback" id="state-validation">
                 Looks good!
             </div>
-             <div class="invalid-feedback">
-                Must select a state.
+            <div class="invalid-feedback" id="state-validation" role="alert">
+                You must select a state.
             </div>
         </div>
     
         <div class="form-group my-3">
             <label for="description">Description: </label>
-            <textarea class="form-control" id="description" name="description" maxlength="2000" minlength="10" required></textarea>
-            <div class="valid-feedback">
+            <textarea class="form-control" id="description" name="description" maxlength="2000" minlength="10" required aria-describedby="description-validation"></textarea>
+            <div class="valid-feedback" id="decription-validation">
                 Looks good!
             </div>
-             <div class="invalid-feedback">
-                Must be between 10-2000 characters.
+             <div class="invalid-feedback" id="decription-validation" role="alert">
+                Description must be between 10 and 2000 characters.
             </div>
         </div>
 
         <div class="form-group my-3">
             <label for="price">Price: </label>
-            <input class="form-control" type="number" id="price" name="price" max="1000" min="0" required>
-            <div class="valid-feedback">
+            <input class="form-control" type="number" id="price" name="price" max="1000" min="0" required aria-describedby="price-validation">
+            <div class="valid-feedback" id="price-validation">
                 Looks good!
             </div>
-            <div class="invalid-feedback">
-                Price must be between 0-1000.
+            <div class="invalid-feedback" id="price-validation" role="alert">
+                Price must be between 0 and 1000.
             </div>
         </div>
 
         <div class="form-group my-3">
             <label for="img-upload">Upload new images: </label>
-            <input type="file" class="form-control no-validate" name="img" id="img-upload" multiple />
-            <div class="text-danger" id="img-feedback">
+            <input type="file" class="form-control no-validate" name="img" id="img-upload" multiple aria-describedby="img-feedback"/>
+            <div class="text-danger" id="img-feedback" role="alert">
                 Please upload no more than 5 images.
             </div>
         </div>

@@ -7,49 +7,117 @@
     <form method="POST" class="needs-validation" action="/campgrounds/<%=campground._id%>/auth/edit/?_method=PUT" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group">
             <label for="title">Name of campground: </label>
-            <input class="form-control mb-3" id="title" name="title" value="<%=campground.title %>" required>
-            <div class="valid-feedback">
+            <input class="form-control mb-3" id="title" name="title" value="<%=campground.title %>" required aria-describedby="title-validation">
+            <div class="valid-feedback" id="title-validation" >
                 Looks good!
+            </div>
+            <div class="invalid-feedback" id="title-validation" role="alert">
+                    Name of campground must be between 3 and 30 characters.
             </div>
         </div>
         
         <div class="form-group">
             <label for="city">City:</label>
-            <input class="form-control mb-3" id="city" name="city" value="<%= campground.location.split(",")[0].trim() %>" required>
-            <div class="valid-feedback">
+            <input class="form-control mb-3" id="city" name="city" value="<%= campground.location.split(",")[0].trim() %>" required aria-describedby="city-validation">
+            <div class="valid-feedback" id="city-validation">
                 Looks good!
             </div>
+            <div class="invalid-feedback" id="city-validation" role="alert">
+                    City must be between 3 and 30 characters.
+                </div>
         </div>
         
-        <div class="form-group">
+        <div class="form-group my-3">
             <label for="state">State:</label>
-            <input class="form-control mb-3" id="state" name="state" value="<%= campground.location.split(",")[1].trim() %>" required>
-            <div class="valid-feedback">
+            <select name="state" id="state" class="form-select" value="MN" required aria-describedby="state-validation">
+                                <option value="" disabled selected>Select a state</option>
+                                <option value="AL" <% if (campground.location.split(",")[1].trim() === 'AL') { %>selected<% } %>>Alabama</option>
+                                <option value="AK" <% if (campground.location.split(",")[1].trim() === 'AK') { %>selected<% } %>>Alaska</option>
+                                <option value="AZ" <% if (campground.location.split(",")[1].trim() === 'AZ') { %>selected<% } %>>Arizona</option>
+                                <option value="AR" <% if (campground.location.split(",")[1].trim() === 'AR') { %>selected<% } %>>Arkansas</option>
+                                <option value="CA" <% if (campground.location.split(",")[1].trim() === 'CA') { %>selected<% } %>>California</option>
+                                <option value="CO" <% if (campground.location.split(",")[1].trim() === 'CO') { %>selected<% } %>>Colorado</option>
+                                <option value="CT" <% if (campground.location.split(",")[1].trim() === 'CT') { %>selected<% } %>>Connecticut</option>
+                                <option value="DE" <% if (campground.location.split(",")[1].trim() === 'DE') { %>selected<% } %>>Delaware</option>
+                                <option value="FL" <% if (campground.location.split(",")[1].trim() === 'FL') { %>selected<% } %>>Florida</option>
+                                <option value="GA" <% if (campground.location.split(",")[1].trim() === 'GA') { %>selected<% } %>>Georgia</option>
+                                <option value="HI" <% if (campground.location.split(",")[1].trim() === 'HI') { %>selected<% } %>>Hawaii</option>
+                                <option value="ID" <% if (campground.location.split(",")[1].trim() === 'ID') { %>selected<% } %>>Idaho</option>
+                                <option value="IL" <% if (campground.location.split(",")[1].trim() === 'IL') { %>selected<% } %>>Illinois</option>
+                                <option value="IN" <% if (campground.location.split(",")[1].trim() === 'IN') { %>selected<% } %>>Indiana</option>
+                                <option value="IA" <% if (campground.location.split(",")[1].trim() === 'IA') { %>selected<% } %>>Iowa</option>
+                                <option value="KS" <% if (campground.location.split(",")[1].trim() === 'KS') { %>selected<% } %>>Kansas</option>
+                                <option value="KY" <% if (campground.location.split(",")[1].trim() === 'KY') { %>selected<% } %>>Kentucky</option>
+                                <option value="LA" <% if (campground.location.split(",")[1].trim() === 'LA') { %>selected<% } %>>Louisiana</option>
+                                <option value="ME" <% if (campground.location.split(",")[1].trim() === 'ME') { %>selected<% } %>>Maine</option>
+                                <option value="MD" <% if (campground.location.split(",")[1].trim() === 'MD') { %>selected<% } %>>Maryland</option>
+                                <option value="MA" <% if (campground.location.split(",")[1].trim() === 'MA') { %>selected<% } %>>Massachusetts</option>
+                                <option value="MI" <% if (campground.location.split(",")[1].trim() === 'MI') { %>selected<% } %>>Michigan</option>
+                                <option value="MN" <% if (campground.location.split(",")[1].trim() === 'MN') { %>selected<% } %>>Minnesota</option>
+                                <option value="MS" <% if (campground.location.split(",")[1].trim() === 'MS') { %>selected<% } %>>Mississippi</option>
+                                <option value="MO" <% if (campground.location.split(",")[1].trim() === 'MO') { %>selected<% } %>>Missouri</option>
+                                <option value="MT" <% if (campground.location.split(",")[1].trim() === 'MT') { %>selected<% } %>>Montana</option>
+                                <option value="NE" <% if (campground.location.split(",")[1].trim() === 'NE') { %>selected<% } %>>Nebraska</option>
+                                <option value="NV" <% if (campground.location.split(",")[1].trim() === 'NV') { %>selected<% } %>>Nevada</option>
+                                <option value="NH" <% if (campground.location.split(",")[1].trim() === 'NH') { %>selected<% } %>>New Hampshire</option>
+                                <option value="NJ" <% if (campground.location.split(",")[1].trim() === 'NJ') { %>selected<% } %>>New Jersey</option>
+                                <option value="NM" <% if (campground.location.split(",")[1].trim() === 'NM') { %>selected<% } %>>New Mexico</option>
+                                <option value="NY" <% if (campground.location.split(",")[1].trim() === 'NY') { %>selected<% } %>>New York</option>
+                                <option value="NC" <% if (campground.location.split(",")[1].trim() === 'NC') { %>selected<% } %>>North Carolina</option>
+                                <option value="ND" <% if (campground.location.split(",")[1].trim() === 'ND') { %>selected<% } %>>North Dakota</option>
+                                <option value="OH" <% if (campground.location.split(",")[1].trim() === 'OH') { %>selected<% } %>>Ohio</option>
+                                <option value="OK" <% if (campground.location.split(",")[1].trim() === 'OK') { %>selected<% } %>>Oklahoma</option>
+                                <option value="OR" <% if (campground.location.split(",")[1].trim() === 'OR') { %>selected<% } %>>Oregon</option>
+                                <option value="PA" <% if (campground.location.split(",")[1].trim() === 'PA') { %>selected<% } %>>Pennsylvania</option>
+                                <option value="RI" <% if (campground.location.split(",")[1].trim() === 'RI') { %>selected<% } %>>Rhode Island</option>
+                                <option value="SC" <% if (campground.location.split(",")[1].trim() === 'SC') { %>selected<% } %>>South Carolina</option>
+                                <option value="SD" <% if (campground.location.split(",")[1].trim() === 'SD') { %>selected<% } %>>South Dakota</option>
+                                <option value="TN" <% if (campground.location.split(",")[1].trim() === 'TN') { %>selected<% } %>>Tennessee</option>
+                                <option value="TX" <% if (campground.location.split(",")[1].trim() === 'TX') { %>selected<% } %>>Texas</option>
+                                <option value="UT" <% if (campground.location.split(",")[1].trim() === 'UT') { %>selected<% } %>>Utah</option>
+                                <option value="VT" <% if (campground.location.split(",")[1].trim() === 'VT') { %>selected<% } %>>Vermont</option>
+                                <option value="VA" <% if (campground.location.split(",")[1].trim() === 'VA') { %>selected<% } %>>Virginia</option>
+                                <option value="WA" <% if (campground.location.split(",")[1].trim() === 'WA') { %>selected<% } %>>Washington</option>
+                                <option value="WV" <% if (campground.location.split(",")[1].trim() === 'WV') { %>selected<% } %>>West Virginia</option>
+                                <option value="WI" <% if (campground.location.split(",")[1].trim() === 'WI') { %>selected<% } %>>Wisconsin</option>
+                                <option value="WY" <% if (campground.location.split(",")[1].trim() === 'WY') { %>selected<% } %>>Wyoming</option>
+
+                            </select>
+            <div class="valid-feedback" id="state-validation">
                 Looks good!
+            </div>
+            <div class="invalid-feedback" id="state-validation" role="alert">
+                You must select a state.
             </div>
         </div>
         
-        <div class="form-group">
+        <div class="form-group my-3">
             <label for="description">Description: </label>
-            <textarea class="form-control mb-3" id="description" name="description" value="<%=campground.description %>" required><%=campground.description %></textarea>
-            <div class="valid-feedback">
+            <textarea class="form-control" id="description" name="description" maxlength="2000" minlength="10" required aria-describedby="description-validation"><%= campground.description %></textarea>
+            <div class="valid-feedback" id="decription-validation">
                 Looks good!
+            </div>
+             <div class="invalid-feedback" id="decription-validation" role="alert">
+                Description must be between 10 and 2000 characters.
             </div>
         </div>
         
-        <div class="form-group">
+        <div class="form-group my-3">
             <label for="price">Price: </label>
-            <input class="form-control mb-3" id="price" name="price" value="<%=campground.price %>" required>
-            <div class="valid-feedback">
+            <input class="form-control" type="number" id="price" name="price" value="<%=campground.price%>" max="1000" min="0" required aria-describedby="price-validation">
+            <div class="valid-feedback" id="price-validation">
                 Looks good!
+            </div>
+            <div class="invalid-feedback" id="price-validation" role="alert">
+                Price must be between 0 and 1000.
             </div>
         </div>
         
         <div class="form-group my-3">
             <label for="img-upload">Upload new images: </label>
-            <input type="file" class="form-control no-validate" name="img" id="img-upload" multiple />
-            <div class="text-danger" id="img-feedback">
-                Limit 5 total images.
+            <input type="file" class="form-control no-validate" name="img" id="img-upload" multiple aria-describedby="img-feedback"/>
+            <div class="text-danger" id="img-feedback" role="alert">
+                Please upload no more than 5 images.
             </div>
         </div>
 

@@ -50,7 +50,7 @@ p,
     font-weight: 400;
 }
 
-a {
+a, .my-email {
     color: var(--yc-lt-yellow-1)
 }
 
@@ -144,6 +144,7 @@ a {
     border: 2px solid var(--yc-lt-yellow-1);
     overflow: hidden;
     margin: 0 15px;
+    background-color: var(--yc-lt-grey-3);
 }
 
 .resume-img-container img {

@@ -9,17 +9,17 @@
         <form class="form-control needs-validation" action="/login/local?path=<%= path %>" method="POST">
             <div class="form-group mb-3">
                 <label for="username">Username:</label>
-                <input class='login-input' autocomplete="off" name="username">
+                <input class='login-input' autocomplete="off" name="username" id="username">
             </div>
 
             <div class="form-group mb-3">
                 <label for="password">Password:</label>
-                <input class='login-input' autocomplete="off" name="password" type="password">
+                <input class='login-input' autocomplete="off" name="password" type="password" id="password"> 
             </div>
 
             <div class="form-group mb-3">
                 <label for="trusted"><small>Remember my password.</small></label>
-                <input autocomplete="off" type="checkbox" name="trusted">
+                <input autocomplete="off" type="checkbox" name="trusted" id="trusted">
                 <p><small>(Only check this box if this is a trusted device!)</small></p>
             </div>
 

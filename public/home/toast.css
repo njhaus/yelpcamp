@@ -26,6 +26,7 @@
     border-radius: 50%;
     border: 2px solid var(--yc-lt-yellow-1);
     overflow: hidden;
+    background-color: var(--yc-lt-grey-3);
 }
 
 .toast-img-container img {

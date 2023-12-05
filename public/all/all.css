@@ -267,6 +267,7 @@ input:-webkit-autofill:focus {
     box-shadow: var(--popup-box-shadow)
     ;
     border-radius: var(--bs-alert-border-radius);
+    z-index: 10;
 }
 
 .alert-yc-success svg {
@@ -292,7 +293,6 @@ input:-webkit-autofill:focus {
 
 dialog {
     top: 80px !important;
-    position: relative;
     background-color: var(--yc-dark-grey-1) !important;
     color: white !important;
     box-shadow: var(--popup-box-shadow);
@@ -300,4 +300,5 @@ dialog {
     width: fit-content;
     border: none;
     max-width: 80%;
+    z-index: 10;
 }
