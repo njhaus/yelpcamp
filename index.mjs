@@ -119,8 +119,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-  console.log(req.isAuthenticated());
-  console.log(req.user);
   if (req.user) {
     console.log("User detected");
   } else {
@@ -232,6 +230,11 @@ app.delete(/auth/, verifyAuth, (req, res, next) => {
 });
 
 // MAIN ROUTES
+
+app.get("/", (req, res) => {
+  res.redirect("/home");
+})
+
 
 app.get("/home", (req, res) => {
   res.render("home/home.ejs");
