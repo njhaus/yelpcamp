@@ -1,2 +1,9 @@
+# render deployment 
+# Static Outbound IP Addresses
+# Network requests from your service to the public internet will come from one of the following IP addresses.
+
+3.134.238.10
+3.129.111.220
+52.15.118.168
 
 

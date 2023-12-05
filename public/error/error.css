@@ -1,0 +1,5 @@
+.error-section {
+    margin-top: 80px;
+    background-color: var(--yc-dark-grey-2);
+    height: calc(100vh - 30px);
+}

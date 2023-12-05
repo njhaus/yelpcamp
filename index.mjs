@@ -23,7 +23,9 @@ dotenv.config({ silent: process.env.NODE_ENV === "production" });
 import helmet from "helmet";
 
 // Cloud Database (Mongo Atlas)
-const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/campgroundsDB";
+const dbUrl =
+  // process.env.DB_URL ||
+  "mongodb://127.0.0.1:27017/campgroundsDB";
 //  Store session in Mongo Atlas
 import MongoStore from "connect-mongo";
 const store = MongoStore.create({
@@ -251,7 +253,7 @@ app.use("/about", aboutRoute);
 
 // ROUTE NOT FOUND -- catchalls
 
-app.use("*", (req, res, next) => {
+app.use((req, res, next) => {
   const error = new AppError("This page does not exist.", 404);
   console.log(error);
   console.log("MESSAGE:" + error.message);

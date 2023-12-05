@@ -12,10 +12,15 @@ export const submitRegister = async (req, res) => {
         try {
             const user = new User({ username: username, email: email });
             const registeredUser = await User.register(user, password);
-            req.flash("success", `Welcome to YelpCamp, ${username}!`);
             await req.login(registeredUser, function (err) {
-                if (err) res.redirect('/login');
-                return res.redirect('/campgrounds');
+              if (err) {
+                req.flash("success", `Welcome to YelpCamp, ${username}!`);
+                return res.redirect('/login');
+              }
+              else {
+                req.flash("success", `Welcome to YelpCamp, ${username}!`);
+                return res.redirect("/campgrounds");
+              }
             })    
         } catch (err) {
             // console.log('MESSAGE:' + err.details.message);
