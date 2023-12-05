@@ -24,7 +24,7 @@ import helmet from "helmet";
 
 // Cloud Database (Mongo Atlas)
 const dbUrl =
-  // process.env.DB_URL ||
+  process.env.DB_URL ||
   "mongodb://127.0.0.1:27017/campgroundsDB";
 //  Store session in Mongo Atlas
 import MongoStore from "connect-mongo";
