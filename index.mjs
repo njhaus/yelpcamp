@@ -59,7 +59,9 @@ import { verifyAuth } from "./utilities/validation_utilities.js";
 
 // express setup
 const app = express();
-app.listen(3000, () => console.log("Running on port 3000"));
+
+const port = '0.0.0.0'
+app.listen(port, () => console.log(`Running on port ${port}`));
 app.use(express.urlencoded({ extended: true }));
 
 // ejs and ejs mate setup
@@ -152,7 +154,7 @@ const fontSrcUrls = [
   "https://fonts.googleapis.com",
   "https://fonts.gstatic.com",
 ];
-const connectSrcUrls = ["https://api.maptiler.com", "https://api.radar.io"];
+const connectSrcUrls = ["https://api.maptiler.com", "https://api.radar.io", ];
 const imgSrcUrls = [
   "https://res.cloudinary.com/dnnwjgqa2",
   "https://images.unsplash.com",
