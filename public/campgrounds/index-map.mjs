@@ -118,7 +118,8 @@ const createMap = (data, key) => {
 
   const map = new maplibregl.Map({
     container: container,
-    style: `https://api.maptiler.com/tiles/satellite/?key=2XZKg54dnt7JS7AZhe7J`,
+    style:
+      `https://api.maptiler.com/maps/streets/style.json?key=WhatTheAbsoluteFuck`,
     center: searchCoords,
     zoom: zoom,
   });
