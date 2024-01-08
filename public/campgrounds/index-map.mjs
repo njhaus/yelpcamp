@@ -25,6 +25,7 @@ const radarKey = async () => {
   try {
     const response = await fetch('/data/getMaptiler');
     const data = await response.text();
+    console.log(data)
     if (response.ok) {
       return data;
     }
@@ -77,7 +78,9 @@ const cgData = async () => {
     }
     else {
       const key = await radarKey();
-      createMap(filteredData, key)
+      console.log("FROM SERVER...");
+      console.log(key)
+      createMap(filteredData, "2XZKg54dnt7JS7AZhe7J");
     }
   } catch (err) {
     console.log(err);
@@ -109,6 +112,9 @@ const createMap = (data, key) => {
   // FILTER FUNCTION -- filter by property and value! (Probably make these queries on the ejs page so it affects map and campgrond list)
 
   const container = document.querySelector("#map");
+
+  console.log("IN CREATE MAP")
+  console.log(key);
 
   const map = new maplibregl.Map({
     container: container,
