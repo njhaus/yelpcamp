@@ -78,7 +78,7 @@ const cgData = async () => {
     }
     else {
       const key = await radarKey();
-      createMap(filteredData, "2XZKg54dnt7JS7AZhe7J");
+      createMap(filteredData, key);
     }
   } catch (err) {
     console.log(err);
