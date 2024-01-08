@@ -60,7 +60,7 @@ import { verifyAuth } from "./utilities/validation_utilities.js";
 // express setup
 const app = express();
 const port = process.env.PORT || 3000;
-app.listen(port, '0.0.0.0', () => console.log("Running on port 3000"));
+app.listen(port, '0.0.0.0', () => console.log(`Server is running. Better go and catch it!`));
 app.use(express.urlencoded({ extended: true }));
 
 // ejs and ejs mate setup
