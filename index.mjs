@@ -153,7 +153,7 @@ const fontSrcUrls = [
   "https://fonts.googleapis.com",
   "https://fonts.gstatic.com",
 ];
-const connectSrcUrls = ["https://api.maptiler.com", "https://api.radar.io", ];
+const connectSrcUrls = ["https://api.maptiler.com", "https://api.radar.io" ];
 const imgSrcUrls = [
   "https://res.cloudinary.com/dnnwjgqa2",
   "https://images.unsplash.com",
@@ -187,7 +187,7 @@ async function main() {
     await mongoose.connect(dbUrl);
     console.log("Database connection successful");
   } catch (err) {
-    console.err(err);
+    console.log(err);
   }
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
