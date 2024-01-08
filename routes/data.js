@@ -38,10 +38,10 @@ router.get("/getRadar", (req, res) => {
 });
 
 router.get("/getMaptiler", (req, res) => {
-  // This caused an issue in production...
+  // This caused an issue in production...somehow the key was changed.
   // const key = process.env.MAPTILER_KEY;
   const key = "2XZKg54dnt7JS7AZhe7J";
-  res.send(key);
+  res.send({ key: key });
 });
 
 export default router;
