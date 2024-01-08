@@ -78,8 +78,6 @@ const cgData = async () => {
     }
     else {
       const key = await radarKey();
-      console.log("FROM SERVER...");
-      console.log(key)
       createMap(filteredData, "2XZKg54dnt7JS7AZhe7J");
     }
   } catch (err) {
@@ -113,12 +111,9 @@ const createMap = (data, key) => {
 
   const container = document.querySelector("#map");
 
-  console.log("IN CREATE MAP")
-  console.log(key);
-
   const map = new maplibregl.Map({
     container: container,
-    style: `https://api.maptiler.com/maps/streets/style.json?key=TlHNy4yOvdMALRIOY30Y`,
+    style: `https://api.maptiler.com/maps/streets/style.json?key=${key}`,
     center: searchCoords,
     zoom: zoom,
   });
