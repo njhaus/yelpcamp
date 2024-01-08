@@ -118,8 +118,7 @@ const createMap = (data, key) => {
 
   const map = new maplibregl.Map({
     container: container,
-    style:
-      `https://api.maptiler.com/maps/streets/style.json?key=${key}`,
+    style: `https://api.maptiler.com/maps/satellite?key=2XZKg54dnt7JS7AZhe7J`,
     center: searchCoords,
     zoom: zoom,
   });
