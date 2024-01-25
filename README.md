@@ -1,7 +1,7 @@
 # YelpCamp
 ---
 
-[Click here to visit the live version of YelpCamp](https://yelpcamp-tykm.onrender.com/)
+[Click here to visit the live version of YelpCamp](https://yelpcamp-production-c045.up.railway.app/home/)
 
 This site is hosted with the free tier of Render, which spins down with inactivity. Please allow up to 1 minute for the site to load on first load.
 
